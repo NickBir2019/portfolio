@@ -305,7 +305,7 @@
     if (found.length) render();
   });
 
-  Promise.all(["data/yt-content.csv", "data/yt-daily.csv", "data/yt-traffic.csv"].map((u) => fetch(u).then((r) => r.text())))
+  Promise.all(["yt-content.csv", "yt-daily.csv", "yt-traffic.csv"].map((u) => fetch(u).then((r) => r.text())))
     .then(([c, d, t]) => { data.content = parseCSV(c); data.daily = parseCSV(d); data.traffic = parseCSV(t); render(); })
     .catch(() => { $("#asof").textContent = "Couldn't load the data files. If you opened this page straight from your computer, view it on the live site instead."; });
 })();
