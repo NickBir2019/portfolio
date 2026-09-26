@@ -1,0 +1,23 @@
+SKU,Product,Category,Price,UnitCost,LeadTimeDays
+WHY-CHO-1K,"Whey Protein 1kg, Chocolate",Protein,29.99,12.8,14
+WHY-VAN-1K,"Whey Protein 1kg, Vanilla",Protein,29.99,12.8,14
+WHY-STR-1K,"Whey Protein 1kg, Strawberry",Protein,29.99,12.8,14
+WHY-SCA-1K,"Whey Protein 1kg, Salted Caramel",Protein,29.99,12.8,14
+WHY-CHO-25,"Whey Protein 2.5kg, Chocolate",Protein,54.99,25.5,14
+WHY-VAN-25,"Whey Protein 2.5kg, Vanilla",Protein,54.99,25.5,14
+VEG-CHO-1K,"Vegan Protein 1kg, Chocolate",Protein,32.99,15.9,21
+VEG-BER-1K,"Vegan Protein 1kg, Berry",Protein,32.99,15.9,21
+GAI-CHO-25,"Mass Gainer 2.5kg, Chocolate",Protein,39.99,18.4,21
+CRE-300,Creatine Monohydrate 300g,Creatine,19.99,5.6,10
+CRE-500,Creatine Monohydrate 500g,Creatine,27.99,8.7,10
+PRE-FPU,"Pre-Workout, Fruit Punch",Pre-workout,24.99,8.9,21
+PRE-BRA,"Pre-Workout, Blue Raspberry",Pre-workout,24.99,8.9,21
+PRE-COL,"Pre-Workout, Cola",Pre-workout,24.99,8.9,21
+BCA-WAT,"BCAA, Watermelon",Amino acids,19.99,6.8,21
+BCA-LEM,"BCAA, Lemon",Amino acids,19.99,6.8,21
+BAR-CHO-12,"Protein Bars x12, Chocolate",Snacks,24.99,13.2,10
+BAR-PNB-12,"Protein Bars x12, Peanut",Snacks,24.99,13.2,10
+VIT-MUL-90,"Multivitamin, 90 tablets",Vitamins,12.99,3.4,14
+VIT-D3-120,"Vitamin D3, 120 tablets",Vitamins,9.99,2.1,14
+OMG-3-90,"Omega-3, 90 capsules",Vitamins,14.99,4.9,14
+ACC-SHK,Shaker Bottle 700ml,Accessories,6.99,1.7,28

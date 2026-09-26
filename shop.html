@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-commerce operations dashboard | Nick Birch</title>
+  <meta name="description" content="Sales, stock, web traffic and ad campaigns for an online supplements shop in one dashboard. Based on real situations from a business I co-founded, using made-up data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="youtube.css">
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="name" href="/">Nick Birch</a>
+    <nav>
+      <a href="/#projects">Projects</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="case">
+  <div class="case-head">
+    <div class="wrap">
+      <a class="back" href="/#projects">All projects</a>
+      <h1>E-commerce operations dashboard</h1>
+      <p class="summary">When I co-founded an online supplements business, we tracked sales, stock, website traffic and ad campaigns through the e-commerce store's own reports. This page brings that kind of reporting together in one dashboard. It uses made-up data, but the situations it shows are real ones we dealt with.</p>
+      <dl class="case-meta">
+        <div><dt>Built with</dt><dd>Claude (AI), HTML, JavaScript</dd></div>
+        <div><dt>Data</dt><dd>Made up, for a fictional shop</dd></div>
+        <div><dt>Covers</dt><dd>Sales, stock, web traffic, ads</dd></div>
+        <div><dt>Status</dt><dd class="status live">Live</dd></div>
+      </dl>
+
+      <div class="realbox">
+        <div>
+          <h3>Based on what really happened <span class="tag real">Real</span></h3>
+          <ul>
+            <li>Our best-selling product ran out. We kept taking orders and fulfilled them through a drop-ship supplier, which cut the margin but kept customers.</li>
+            <li>Fewer people clicked through to us from normal Google search results, so we increased Google PPC and Facebook advertising.</li>
+            <li>We tracked every ad campaign's spend and results.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Made up for this page <span class="tag madeup">Made up</span></h3>
+          <p>The shop name (Harbour Lane Nutrition), the products, prices and dates, and every number on this page. They were created to show how those situations would look on a dashboard. They are not the business's real figures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash">
+    <div class="wrap">
+      <div class="dash-bar">
+        <h2>The year at a glance</h2>
+        <span class="source" id="asof">Made-up data for one illustrative year</span>
+      </div>
+      <div class="kpis six" id="kpis"></div>
+
+      <div class="panel">
+        <h3>Monthly sales</h3>
+        <p class="explain">Sales after discounts. Hover for each month.</p>
+        <div class="chart" id="salesChart"></div>
+      </div>
+
+      <!-- Story 1 -->
+      <div class="story">
+        <h2>1. The best-seller ran out <span class="tag real">Real situation</span></h2>
+        <p class="explain">When our best-selling product ran out, we didn't stop selling it. Orders kept coming in and a drop-ship supplier sent them straight to customers. It cost more per unit, but customers still got their orders. The figures below are made up to show the trade-off.</p>
+        <div class="kpis four" id="stockKpis"></div>
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Weekly stock</h3>
+            <select class="picker" id="skuPick" aria-label="Choose a product"></select>
+          </div>
+          <div class="legend" id="stockLegend"></div>
+          <div class="chart" id="stockChart"></div>
+        </div>
+        <div class="panel">
+          <h3>Every product</h3>
+          <p class="explain">Sorted by sales. Weeks of cover is current stock divided by average weekly sales over the last 12 weeks.</p>
+          <div class="vtable-wrap">
+            <table class="vtable">
+              <thead><tr><th>Product</th><th class="num">Units sold</th><th class="num">Sales</th><th class="num">Margin</th><th class="num">In stock now</th><th class="num">Weeks of cover</th><th class="num">Days out</th><th class="num">Drop-shipped</th></tr></thead>
+              <tbody id="stockBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 2 -->
+      <div class="story">
+        <h2>2. Fewer clicks from Google search <span class="tag real">Real situation</span></h2>
+        <p class="explain">The shop kept appearing in Google's normal search results, but fewer people clicked through. To make up the lost visits, we increased Google PPC and Facebook advertising. The figures below are made up to show the pattern.</p>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Click-through rate from Google search</h3>
+            <p class="explain">Clicks as a share of times the shop appeared in results.</p>
+            <div class="chart" id="ctrChart"></div>
+          </div>
+          <div class="panel">
+            <h3>Monthly ad spend</h3>
+            <div class="legend" id="spendLegend"></div>
+            <div class="chart" id="spendChart"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Website visits by source</h3>
+          <p class="explain">Visits from normal Google search against visits from paid ads.</p>
+          <div class="legend" id="visitLegend"></div>
+          <div class="chart" id="visitChart"></div>
+        </div>
+      </div>
+
+      <!-- Story 3 -->
+      <div class="story">
+        <h2>3. Tracking every ad campaign <span class="tag real">Real practice</span></h2>
+        <p class="explain">Each campaign's spend and results were tracked so budget could go where it worked. The campaigns and figures below are made up. Orders and sales are as reported by each ad platform.</p>
+        <div class="panel">
+          <div class="vtable-wrap">
+            <table class="vtable">
+              <thead><tr><th>Campaign</th><th>Platform</th><th class="num">Spend</th><th class="num">Clicks</th><th class="num">Click rate</th><th class="num">Cost per click</th><th class="num">Orders</th><th class="num">Cost per order</th><th class="num">Sales per £1</th></tr></thead>
+              <tbody id="campBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Sales by channel</h3>
+            <p class="explain">From website analytics. Hover for visits and conversion rate.</p>
+            <ul class="bars" id="channels"></ul>
+          </div>
+          <div class="panel">
+            <h3>From visit to order</h3>
+            <p class="explain">All visits across the year.</p>
+            <ul class="bars" id="funnel"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section>
+      <h2>How it was done then</h2>
+      <div class="body">
+        <p>Before AI tools, each part of this lived in a different place. Sales and stock came from the e-commerce store's own reports, and website traffic and ad results came from Google and Facebook's own dashboards.</p>
+        <p class="todo">Nick to add: which store platform it was, how often he checked the reports, and how decisions were made from them, for example a weekly review.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>What actually happened</h2>
+      <div class="body">
+        <p class="todo">Nick to write, in his own words, the real story behind situations 1 and 2: roughly when it happened, what was decided and why, and what the outcome was. Keep it to what he can talk about in an interview. No real figures unless he's happy to share them.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>How I built this</h2>
+      <div class="body">
+        <p>I described the real situations to Claude, an AI assistant, which generated a year of made-up data that behaves the same way. It then built this page to calculate every figure from that data. The data links together throughout: visits turn into orders, orders use up stock, and ad spend brings in visits.</p>
+        <p>Having it all in one place is the point. Now a stock problem, a traffic drop and the ad response can be seen side by side, instead of across three separate reports.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap"><a href="/">Nick Birch</a> &middot; All figures on this page are made up</div>
+</footer>
+
+<script src="shop.js"></script>
+</body>
+</html>
