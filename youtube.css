@@ -1,0 +1,75 @@
+/* Extra styles for the YouTube dashboard page. Loaded after styles.css. */
+:root { --series: #2a78d6; }
+.dash { padding: 48px 0 24px; border-bottom: 1px solid var(--rule); }
+.dash-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 20px; }
+.dash-bar h2 { font-size: 22px; margin: 0; font-weight: 600; letter-spacing: -0.01em; }
+.dash-bar .source { font-size: 14px; color: var(--muted); }
+
+.kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); margin-bottom: 40px; }
+.kpi { padding: 18px 16px 18px 0; }
+.kpi + .kpi { padding-left: 16px; border-left: 1px solid var(--rule); }
+.kpi .label { font-size: 13px; color: var(--muted); }
+.kpi .value { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.kpi .sub { font-size: 13px; color: var(--muted); }
+
+.panel { margin-bottom: 44px; }
+.panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+.panel h3 { font-size: 17px; font-weight: 600; margin: 0; }
+.panel .explain { font-size: 15px; color: var(--muted); margin: 0 0 16px; max-width: 70ch; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+
+.seg { display: inline-flex; border: 1px solid var(--rule); }
+.seg button { font: inherit; font-size: 13px; background: none; border: 0; padding: 6px 12px; color: var(--muted); cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--rule); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+
+.chart { position: relative; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: "IBM Plex Sans", system-ui, sans-serif; fill: var(--muted); font-size: 12px; }
+.chart .event text { fill: var(--ink); font-size: 12px; font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+.event-key { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 10px 0 0 44px; font-size: 13px; color: var(--muted); }
+.event-key b { font-family: "IBM Plex Mono", monospace; font-weight: 500; color: var(--ink); margin-right: 4px; }
+
+.bars { list-style: none; margin: 0; padding: 0; }
+.bars li { display: grid; grid-template-columns: 150px 1fr 88px; gap: 12px; align-items: center; padding: 5px 0; cursor: default; }
+.bars .name { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bars .track { height: 14px; position: relative; }
+.bars .fill { height: 100%; background: var(--series); border-radius: 0 4px 4px 0; min-width: 2px; }
+.bars li.dim .fill { background: #b9c0ca; }
+.bars .val { font-size: 14px; text-align: right; font-variant-numeric: tabular-nums; }
+.bars li:hover .name { color: var(--accent); }
+
+.tip { position: fixed; z-index: 10; pointer-events: none; background: #fff; border: 1px solid var(--ink); padding: 8px 10px; font-size: 13px; line-height: 1.45; max-width: 280px; box-shadow: 0 2px 8px rgba(0,0,0,.08); display: none; }
+.tip b { font-weight: 600; }
+
+.table-tools { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+.table-tools input, .table-tools select { font: inherit; font-size: 14px; padding: 7px 10px; border: 1px solid var(--rule); background: #fff; color: var(--ink); }
+.table-tools input { flex: 1 1 220px; }
+.vtable-wrap { overflow-x: auto; border-top: 1px solid var(--ink); }
+table.vtable { border-collapse: collapse; width: 100%; font-size: 14px; }
+.vtable th, .vtable td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.vtable th { font-weight: 600; white-space: nowrap; }
+.vtable th button { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink); }
+.vtable th button::after { content: ""; margin-left: 4px; color: var(--muted); }
+.vtable th[aria-sort="descending"] button::after { content: "\2193"; }
+.vtable th[aria-sort="ascending"] button::after { content: "\2191"; }
+.vtable td.num, .vtable th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.vtable td.title { min-width: 260px; }
+.more-row { margin-top: 12px; }
+.linkbtn { font: inherit; font-size: 15px; background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+.loader { border: 1px solid var(--rule); background: var(--soft); padding: 16px 18px; font-size: 15px; }
+.loader p { margin: 0 0 10px; }
+.loader .msg { margin: 10px 0 0; font-size: 14px; color: var(--muted); }
+
+.steps { width: 100%; }
+.case .steps td:first-child { font-family: "IBM Plex Mono", monospace; color: var(--muted); font-size: 13px; width: 32px; }
+
+@media (max-width: 820px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .kpi, .kpi + .kpi { padding: 14px 12px 14px 0; border-left: 0; border-bottom: 1px solid var(--rule); }
+  .kpi:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--rule); }
+  .kpi .value { font-size: 24px; }
+  .grid-2 { grid-template-columns: 1fr; gap: 8px; }
+  .bars li { grid-template-columns: 110px 1fr 70px; gap: 8px; }
+}

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube channel analytics | Nick Birch</title>
+  <meta name="description" content="Seven years of data from my gaming channel, Vext Gaming, analysed and built into a dashboard with an AI assistant.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="youtube.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="name" href="/">Nick Birch</a>
+    <nav>
+      <a href="/#projects">Projects</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="case">
+  <div class="case-head">
+    <div class="wrap">
+      <a class="back" href="/#projects">All projects</a>
+      <h1>YouTube channel analytics</h1>
+      <p class="summary">I've run a gaming channel, Vext Gaming, since 2019. I used an AI assistant to turn seven years of raw YouTube Studio exports into this dashboard, and checked its work along the way. The aim was to find out what actually grows the channel.</p>
+      <dl class="case-meta">
+        <div><dt>Built with</dt><dd>Claude (AI), HTML, JavaScript</dd></div>
+        <div><dt>Data</dt><dd>YouTube Studio exports</dd></div>
+        <div><dt>Period</dt><dd>2019 to 2026</dd></div>
+        <div><dt>Status</dt><dd class="status live">Live</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="dash">
+    <div class="wrap">
+      <div class="dash-bar">
+        <h2>Dashboard</h2>
+        <span class="source" id="asof">Loading data</span>
+      </div>
+
+      <div class="kpis" id="kpis"></div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Monthly views</h3>
+          <div class="seg" id="range" role="group" aria-label="Time range">
+            <button data-r="all" aria-pressed="true">All time</button>
+            <button data-r="2024-01" aria-pressed="false">Since 2024</button>
+          </div>
+        </div>
+        <p class="explain">Hover for each month. The lines mark game launches.</p>
+        <div class="chart" id="trend"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Views by game</h3>
+          <p class="explain">All-time views, grouped from video titles.</p>
+          <ul class="bars" id="games"></ul>
+        </div>
+        <div class="panel">
+          <h3>Where viewers come from</h3>
+          <p class="explain">All-time views by traffic source.</p>
+          <ul class="bars" id="traffic"></ul>
+        </div>
+        <div class="panel">
+          <h3>Guides against everything else</h3>
+          <p class="explain">Median views per edited video. Guides are titles with words like guide, build, best or "should you".</p>
+          <ul class="bars" id="guides"></ul>
+        </div>
+        <div class="panel">
+          <h3>Videos, streams and Shorts</h3>
+          <p class="explain">Median views per upload. Hover for subscribers gained per 1,000 views.</p>
+          <ul class="bars" id="formats"></ul>
+        </div>
+        <div class="panel">
+          <h3>Video length</h3>
+          <p class="explain">Median views per edited video, by length. Streams and Shorts left out.</p>
+          <ul class="bars" id="lengths"></ul>
+        </div>
+        <div class="panel">
+          <h3>Try it with a new export</h3>
+          <div class="loader">
+            <p>This page builds every figure from the raw CSV files, so a new month's export updates it in the browser. Nothing is uploaded anywhere.</p>
+            <input type="file" id="files" accept=".csv" multiple aria-label="Choose YouTube Studio CSV files">
+            <p class="msg" id="loadmsg">Accepts Table data.csv from the Content or Traffic source export, and Totals.csv.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Every video</h3>
+        <p class="explain">Click a column heading to sort.</p>
+        <div class="table-tools">
+          <input type="search" id="search" placeholder="Search titles" aria-label="Search titles">
+          <select id="gameFilter" aria-label="Filter by game"></select>
+        </div>
+        <div class="vtable-wrap">
+          <table class="vtable">
+            <thead><tr>
+              <th data-k="title"><button>Title</button></th>
+              <th data-k="game"><button>Game</button></th>
+              <th data-k="format"><button>Type</button></th>
+              <th data-k="pub"><button>Published</button></th>
+              <th data-k="dur" class="num"><button>Length</button></th>
+              <th data-k="views" class="num"><button>Views</button></th>
+              <th data-k="subs" class="num"><button>Subs</button></th>
+              <th data-k="ctr" class="num"><button>Click rate</button></th>
+            </tr></thead>
+            <tbody id="vbody"></tbody>
+          </table>
+        </div>
+        <div class="more-row"><span class="meta" id="vcount"></span> &nbsp; <button class="linkbtn" id="toggleAll">Show all</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section>
+      <h2>What I found</h2>
+      <div class="body">
+        <ol class="findings">
+          <li><div><strong>The channel grows with game launches, then fades fast.</strong> 2019, when Black Desert came to Xbox and PS4, brought 56% of all-time views. The best month ever was November 2024, with 218,426 views, a month after Throne and Liberty launched. Four months later it was down to 6,460. Between launches, views dropped to around 340 a month in 2023.</div></li>
+          <li><div><strong>People find the channel through search, and guides are what they're searching for.</strong> YouTube search brought 43% of views. Guide and build videos got a median of 7,420 views, against 4,322 for other videos. They're a quarter of the edited videos but half of the views. The top video, a "should you play?" guide before Black Desert's PS4 launch, brought 14% of the channel's views on its own.</div></li>
+          <li><div><strong>Edited videos do far better than streams and Shorts.</strong> Edited videos got a median of 5,004 views and 4.6 new subscribers per 1,000 views. Live streams got 1,043 views and 2.2 subscribers per 1,000. Streams were a fifth of all uploads but brought under 5% of views.</div></li>
+          <li><div><strong>5 to 15 minutes works best.</strong> Videos of this length got medians of around 6,000 to 6,500 views. Videos under 5 minutes got 2,513, and videos over 20 minutes got 1,141.</div></li>
+        </ol>
+        <p class="note">Upload day made no clear difference. One caution: these are lifetime totals, so older videos have had longer to build up views.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>What I'd change</h2>
+      <div class="body">
+        <p class="todo">In Nick's words: two or three changes he'd make based on the findings, and how he'd measure whether they worked. For example, planning guide videos ahead of a game launch.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>How I used AI</h2>
+      <div class="body">
+        <p>I used Claude, an AI assistant, for the data work and to build this page. I set the questions and made the calls. The AI did the heavy lifting, and I checked what it produced.</p>
+        <table class="steps">
+          <thead><tr><th></th><th>What I asked for</th><th>What happened, and how it was checked</th></tr></thead>
+          <tbody>
+            <tr><td>01</td><td>Unzip the three YouTube Studio exports and describe every file</td><td>It found that the daily "Table data" file stops at the top 500 days. The dashboard uses the full daily totals file instead.</td></tr>
+            <tr><td>02</td><td>Check the three exports agree</td><td>Total views match across all three: 1,799,849. The video list adds up to 3,309 fewer, which is views on videos no longer on the channel.</td></tr>
+            <tr><td>03</td><td>Group videos by game and type</td><td>Games are tagged from keywords in the title. The first pass left 30 videos untagged, and after reviewing those titles 8 remain, mostly test streams and team matches. Anything 40 minutes or longer counts as a stream, 60 seconds or under as a Short.</td></tr>
+            <tr><td>04</td><td>Flag anything odd in the data</td><td>35 videos show negative subscribers (people unsubscribing after watching), 20 have no publish date and 4 have no views. These were left in and are shown as they are.</td></tr>
+            <tr><td>05</td><td>Compare groups fairly</td><td>Medians rather than averages, because one video has 14% of all views and would skew any average.</td></tr>
+            <tr><td>06</td><td>Build a dashboard that reruns from new exports</td><td>Every figure is calculated in the page from the raw CSV files, and the finding numbers were cross-checked against a separate analysis.</td></tr>
+          </tbody>
+        </table>
+        <p class="todo">Nick to spot-check at least three numbers against YouTube Studio (for example total views and the top video's views) and write one line on what he checked.</p>
+        <p class="todo">One or two lines on what the AI got wrong or needed correcting, and what that taught him about checking AI output.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why this matters at work</h2>
+      <div class="body">
+        <p>The same approach works for any operational report: pull the raw export, check it adds up, agree the rules for grouping, and build something that reruns each month. AI speeds up the build, but the questions and the checking still need a person who knows the operation.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap"><a href="/">Nick Birch</a> &middot; Data from my own YouTube channel</div>
+</footer>
+
+<script src="youtube.js"></script>
+</body>
+</html>
