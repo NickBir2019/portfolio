@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automating complaint response letters | Nick Birch</title>
+  <meta name="description" content="How I helped map a manual complaints process at British Gas and move final response letters to an AI-assisted process that is now used by every complaint handler.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="process.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="name" href="/">Nick Birch</a>
+    <nav>
+      <a href="/#british-gas">British Gas</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="case">
+  <div class="case-head">
+    <div class="wrap">
+      <a class="back" href="/#british-gas">Work at British Gas</a>
+      <h1>Automating complaint response letters</h1>
+      <p class="summary">Every complaint ends with a final response letter. Writing one by hand meant copying details between systems and rewriting information that already sat in the complaint file. I was part of the team that mapped the process, suggested where AI could help, wrote the prompt behind it and tested the tool that was built.</p>
+      <dl class="case-meta">
+        <div><dt>Where</dt><dd>British Gas complaints</dd></div>
+        <div><dt>My part</dt><dd>Process mapping, prompt writing, testing</dd></div>
+        <div><dt>Used by</dt><dd>All complaint handlers (mandatory)</dd></div>
+        <div><dt>Status</dt><dd class="status live">In use</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section>
+      <h2>The problem</h2>
+      <div class="body">
+        <p>A final response letter has to include the full detail of the complaint, the investigation that was carried out, the outcome, and the regulatory information the customer is entitled to. All of this was put together by hand.</p>
+        <p>Handlers also had to copy the customer's name, address and account number one field at a time from the account system into the letter. Every copy and paste was a chance to get something wrong, and the details are going to a customer in a regulated letter.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Process map</h2>
+      <div class="body" style="max-width:none">
+        <div class="map-intro">
+          <span style="--c:var(--manual);--b:var(--manual-bg)">Manual step</span>
+          <span style="--c:var(--auto);--b:var(--auto-bg)">Automated with AI</span>
+          <span style="--c:var(--rule);--b:#fff">Handler step</span>
+        </div>
+
+        <div class="map">
+          <div>
+            <h3>Before</h3>
+            <p class="lane-note">Every part of the letter written by the handler</p>
+            <ol class="flow">
+              <li><strong>Open the complaint file</strong><span class="who">Handler</span></li>
+              <li class="manual"><strong>Copy customer details into the letter</strong>Name, address and account number, one field at a time from the account system.<span class="pain">Copy and paste errors</span></li>
+              <li class="manual"><strong>Write up the complaint</strong>Summarise what the customer complained about from the file.<span class="pain">Rewriting what is already recorded</span></li>
+              <li class="manual"><strong>Write up the investigation and outcome</strong><span class="pain">Time consuming, and detail varies between handlers</span></li>
+              <li class="manual"><strong>Find and add the regulatory content</strong><span class="pain">Looked up case by case</span></li>
+              <li class="manual"><strong>Put it into the correct letter format</strong></li>
+              <li><strong>Letter issued</strong><span class="who">Handler</span></li>
+            </ol>
+          </div>
+
+          <div>
+            <h3>After</h3>
+            <p class="lane-note">AI builds the letter from the complaint file</p>
+            <ol class="flow">
+              <li><strong>Open the complaint file</strong><span class="who">Handler</span></li>
+              <li class="auto"><strong>Customer details added automatically</strong><span class="gain">No copying between systems</span></li>
+              <li class="auto"><strong>AI pulls the complaint and investigation detail</strong><span class="gain">Taken straight from the file</span></li>
+              <li class="auto"><strong>AI identifies the root cause</strong></li>
+              <li class="auto"><strong>AI adds the relevant regulatory content</strong></li>
+              <li class="auto"><strong>Letter produced in the correct format</strong></li>
+              <li><strong>Letter issued</strong><span class="who">Handler</span></li>
+            </ol>
+          </div>
+        </div>
+        <p class="note">A simplified version of the process. System names, templates and internal detail are left out.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>What I did</h2>
+      <div class="body">
+        <ol class="steps">
+          <li><b>Mapped the process</b><span>With my team, I explained the process from start to finish to the external company building the tool, using a process map.</span></li>
+          <li><b>Suggested ideas</b><span>We pointed out where the manual work was and suggested what could be automated, including pulling customer details in so handlers no longer copied them across.</span></li>
+          <li><b>Wrote the prompt</b><span>I was asked to write the prompt that gets AI to produce the letter. Most of the work was refining it again and again until the letters were right.</span></li>
+          <li><b>Handed it over</b><span>I shared the finished prompt with the automation team, who built it into the tool.</span></li>
+          <li><b>Tested it</b><span>My team tested the tool and suggested improvements.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <h2>Result</h2>
+      <div class="body">
+        <p>The AI-produced letter is now mandatory for every complaint handler, and feedback from handlers has been positive. Customer details are no longer copied across by hand, which removes a common source of errors.</p>
+        <p class="note">There are no figures yet on time saved, so I haven't claimed any.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>What I learned</h2>
+      <div class="body">
+        <p class="todo">Two or three sentences in Nick's words. For example, what made the prompt work in the end, or what testing caught that the first version missed.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">This page describes my own role. It contains no British Gas data, letters, templates or internal documents.</div>
+</footer>
+
+</body>
+</html>
