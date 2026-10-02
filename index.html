@@ -7,141 +7,121 @@
   <meta name="description" content="Nick Birch, Leeds. Complaints operations, performance reporting and dashboards built in Power BI, Excel and on the web.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="home.css">
 </head>
-<body>
+<body class="home">
 
-<header class="site-head">
-  <div class="wrap">
+<div class="band">
+  <header class="wrap top">
     <a class="name" href="/">Nick Birch</a>
     <nav>
-      <a href="#british-gas">British Gas</a>
-      <a href="#projects">Projects</a>
+      <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main>
-  <div class="intro">
-    <div class="wrap">
-      <h1>Nick Birch</h1>
-      <p class="role">Complaints operations and performance reporting. Based in Leeds.</p>
-      <p class="lead">I've worked in regulated customer operations at British Gas for eight years, and I now own a caseload of escalated complaints from start to finish. I also spent six months as a Performance Analyst, reporting on backlog, SLAs and compensation spend in Power BI. This page collects the dashboards and tools I build in my own time.</p>
-      <div class="links">
-        <a class="btn primary" href="#projects">See projects</a>
-        <a class="btn" href="https://www.linkedin.com/in/nick-birch-ba4004246">LinkedIn</a>
-        <a class="btn" href="mailto:nicki.l.birch@gmail.com">Email</a>
-      </div>
+  <div class="wrap hero">
+    <ul class="tags">
+      <li>Complaints operations</li>
+      <li>Performance reporting</li>
+      <li>Power BI</li>
+    </ul>
+    <h1>I turn complaint data into decisions.</h1>
+    <p>Eight years in regulated customer operations at British Gas. I own escalated complaints end to end, and I build dashboards in my own time. Based in Leeds.</p>
+    <div class="cta">
+      <a class="solid" href="#work">See my work</a>
+      <a class="ghost" href="https://www.linkedin.com/in/nick-birch-ba4004246">LinkedIn</a>
     </div>
   </div>
+</div>
 
-  <section class="block" id="british-gas">
-    <div class="wrap">
-      <div class="block-head">
-        <h2>Work at British Gas</h2>
-        <p>Examples of my work in the complaints operation. These describe my own role and contain no company data.</p>
-      </div>
+<main class="wrap">
 
-      <ol class="projects">
+  <ul class="stats" aria-label="At a glance">
+    <li class="card"><strong>8 yrs</strong><span>regulated customer operations</span></li>
+    <li class="card"><strong>40 to 50</strong><span>open escalated cases owned</span></li>
+    <li class="card"><strong>6 months</strong><span>as a Performance Analyst</span></li>
+    <li class="card"><strong>8 trainees</strong><span>led through a 12-week programme</span></li>
+  </ul>
 
-        <li class="project">
-          <div class="num">BG 01</div>
-          <div>
-            <h3><a href="ai-letters.html">Automating complaint response letters</a></h3>
-            <p>Mapped a manual letter-writing process, suggested where AI could remove the manual work, wrote the prompt behind the tool and tested it. It is now mandatory for every complaint handler.</p>
-            <a class="more" href="ai-letters.html">See the process map</a>
-          </div>
-          <dl class="meta">
-            <dt>Skills</dt><dd>Process mapping, AI prompts, testing</dd>
-            <dt>Status</dt><dd class="status live">In use</dd>
-          </dl>
-        </li>
+  <section id="work">
+    <h2>Selected work</h2>
+    <!-- To add a project: copy one <article class="work card"> block and change the text, pills and link.
+         To add a screenshot: replace the text inside <div class="thumb"> with <img src="file.png" alt="Short description">. -->
+    <div class="grid">
 
-      </ol>
+      <article class="work card wide">
+        <div class="thumb">[process map preview]</div>
+        <div class="body">
+          <div class="pills"><span class="pill org">At British Gas</span><span class="pill live">In use</span></div>
+          <h3><a href="ai-letters.html">Automating complaint response letters</a></h3>
+          <p>Mapped a manual letter-writing process, suggested where AI could remove the manual work, wrote the prompt behind the tool and tested it. It is now mandatory for every complaint handler.</p>
+          <div class="tools">Process mapping · AI prompts · Testing</div>
+          <a class="more" href="ai-letters.html">See the process map →</a>
+        </div>
+      </article>
+
+      <article class="work card tall">
+        <div class="thumb">[dashboard screenshot]</div>
+        <div class="body">
+          <div class="pills"><span class="pill wip">In progress</span></div>
+          <h3>Complaints operations dashboard</h3>
+          <p class="grow">Where the backlog is building, which complaint types take longest and which teams risk missing the 8-week deadline. Built on about 4,100 made-up complaints.</p>
+          <div class="tools">Power BI · Excel</div>
+          <span class="soon">Case study coming soon</span>
+        </div>
+      </article>
+
+      <article class="work card">
+        <div class="thumb">[site screenshot]</div>
+        <div class="body">
+          <div class="pills"><span class="pill live">Live</span></div>
+          <h3><a href="https://coa-db.vercel.app/">CoA High Risk crafting browser</a></h3>
+          <p class="grow todo">One or two sentences in Nick's words: what the game is, what problem the browser solves for players, and one thing he learned building it.</p>
+          <div class="tools todo">What it's built with</div>
+          <a class="more" href="https://coa-db.vercel.app/">Open the live site →</a>
+        </div>
+      </article>
+
+      <article class="work card">
+        <div class="thumb">[coming soon]</div>
+        <div class="body">
+          <div class="pills"><span class="pill next">Next</span></div>
+          <h3>YouTube channel analytics</h3>
+          <p class="grow">Which topics, video lengths and upload days grow views and subscribers on my gaming channel, and where viewers drop off.</p>
+          <div class="tools">Power BI</div>
+        </div>
+      </article>
+
     </div>
   </section>
 
-  <section class="block" id="projects">
-    <div class="wrap">
-      <div class="block-head">
-        <h2>Projects</h2>
-        <p>Each project starts with a question, then shows the data, how I worked with it, and what I found.</p>
-      </div>
-
-      <!-- To add a project: copy one <li class="project"> block, change the number, text and link. -->
-      <ol class="projects">
-
-        <li class="project">
-          <div class="num">01</div>
-          <div>
-            <h3><a href="complaints-dashboard.html">Complaints operations dashboard</a></h3>
-            <p>A monthly dashboard for a complaints operation: where the backlog is building, which complaint types take longest, and which teams are at risk of missing the 8-week deadline. Built on a made-up dataset of about 4,100 complaints.</p>
-            <a class="more" href="complaints-dashboard.html">Read the case study</a>
-          </div>
-          <dl class="meta">
-            <dt>Tools</dt><dd>Power BI, Excel</dd>
-            <dt>Status</dt><dd class="status progress">In progress</dd>
-          </dl>
-        </li>
-
-        <li class="project">
-          <div class="num">02</div>
-          <div>
-            <h3><a href="https://coa-db.vercel.app/">CoA High Risk crafting browser</a></h3>
-            <p class="todo">One or two sentences in Nick's words: what the game is, what problem the browser solves for players, and one thing he learned building it.</p>
-            <a class="more" href="https://coa-db.vercel.app/">Open the live site</a>
-          </div>
-          <dl class="meta">
-            <dt>Tools</dt><dd class="todo">What it's built with</dd>
-            <dt>Status</dt><dd class="status live">Live</dd>
-          </dl>
-        </li>
-
-        <li class="project">
-          <div class="num">03</div>
-          <div>
-            <h3>YouTube channel analytics</h3>
-            <p>Analysis of my own gaming channel: which topics, video lengths and upload days grow views and subscribers, and where viewers drop off.</p>
-          </div>
-          <dl class="meta">
-            <dt>Tools</dt><dd>Power BI</dd>
-            <dt>Status</dt><dd class="status">Next</dd>
-          </dl>
-        </li>
-
-      </ol>
-    </div>
-  </section>
-
-  <section class="block" id="about">
-    <div class="wrap two-col">
+  <section id="about" class="card about">
+    <div class="text">
       <h2>About</h2>
-      <div>
-        <p>I'm a Customer Resolutions Manager at British Gas, on the technical team. I take over complaints once they're logged and keep ownership through to resolution, usually with 40 to 50 open at a time, including cases where other teams need to act.</p>
-        <p>On secondment as a Performance Analyst I tracked complaints and call centre KPIs in Power BI and Excel and presented findings to senior managers. I also created a training pack on first point of contact resolution. I've supported 8 new complaint handlers through a 12-week training programme and completed the British Gas Aspire to Manager Programme.</p>
-        <p>I'm working towards team leadership in complaints and customer operations.</p>
-        <dl class="facts">
-          <div><dt>Tools</dt><dd>Power BI, Excel, PowerPoint, Microsoft 365, Copilot</dd></div>
-          <div><dt>Focus</dt><dd>Complaints, backlog, SLAs, first contact resolution</dd></div>
-          <div><dt>Training</dt><dd>Aspire to Manager Programme; Business Analysis Fundamentals and Agile Business Analysis courses</dd></div>
-          <div><dt>Location</dt><dd>Leeds and West Yorkshire, remote or hybrid</dd></div>
-        </dl>
-      </div>
+      <p>I'm a Customer Resolutions Advisor on the technical team at British Gas. I take over complaints once they're logged and keep ownership through to resolution, usually with 40 to 50 open at a time, including cases where other teams need to act.</p>
+      <p>On secondment as a Performance Analyst I tracked complaints and call centre KPIs in Power BI and Excel and presented findings to senior managers. I also created a training pack on first point of contact resolution. I've supported 8 new complaint handlers through a 12-week training programme and completed the British Gas Aspire to Manager Programme.</p>
+      <p>I'm working towards team leadership in complaints and customer operations.</p>
+    </div>
+    <dl>
+      <div><dt>Tools</dt><dd>Power BI, Excel, PowerPoint, Microsoft 365, Copilot</dd></div>
+      <div><dt>Focus</dt><dd>Complaints, backlog, SLAs, first contact resolution</dd></div>
+      <div><dt>Training</dt><dd>Aspire to Manager Programme; Business Analysis Fundamentals; Agile Business Analysis</dd></div>
+      <div><dt>Location</dt><dd>Leeds and West Yorkshire, remote or hybrid</dd></div>
+    </dl>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Get in touch</h2>
+    <div class="cta">
+      <a class="solid" href="mailto:nicki.l.birch@gmail.com">nicki.l.birch@gmail.com</a>
+      <a class="ghost" href="https://www.linkedin.com/in/nick-birch-ba4004246">LinkedIn</a>
     </div>
   </section>
 
-  <section class="block" id="contact">
-    <div class="wrap two-col">
-      <h2>Contact</h2>
-      <ul class="contact-list">
-        <li><span>Email</span><a href="mailto:nicki.l.birch@gmail.com">nicki.l.birch@gmail.com</a></li>
-        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/nick-birch-ba4004246">linkedin.com/in/nick-birch-ba4004246</a></li>
-      </ul>
-    </div>
-  </section>
 </main>
 
 <footer>
